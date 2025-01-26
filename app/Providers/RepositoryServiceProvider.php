@@ -11,9 +11,11 @@ class RepositoryServiceProvider extends ServiceProvider
         // Repositories
         $this->app->bind(\App\Interfaces\Repositories\GenreRepositoryInterface::class, \App\Repositories\GenreRepository::class);
         $this->app->bind(\App\Interfaces\Repositories\MovieRepositoryInterface::class, \App\Repositories\MovieRepository::class);
+        $this->app->bind(\App\Interfaces\Repositories\MovieGenreRepositoryInterface::class, \App\Repositories\MovieGenreRepository::class);
 
         // Services
         $this->app->bind(\App\Interfaces\Services\GenreServiceInterface::class, \App\Services\GenreService::class);
         $this->app->bind(\App\Interfaces\Services\MovieServiceInterface::class, \App\Services\MovieService::class);
+        $this->app->bind(\App\Interfaces\Services\MovieGenreServiceInterface::class, \App\Services\MovieGenreService::class);
     }
 }
