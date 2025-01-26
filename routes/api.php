@@ -29,3 +29,8 @@ Route::prefix("movies")->name("movies.")->controller(MovieController::class)->gr
     Route::post("{movieId}/update", "update")->name("update");
     Route::delete("{movieId}", "destroy")->name("destroy");
 });
+
+Route::prefix("movie-genres")->name("movie-genres.")->controller(MovieGenreController::class)->group(function () {
+    Route::post("/", "store")->name("store");
+    Route::delete("{movieGenreId}", "destroy")->name("destroy");
+});
