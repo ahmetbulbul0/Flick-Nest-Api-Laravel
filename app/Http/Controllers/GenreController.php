@@ -32,19 +32,23 @@ class GenreController extends Controller
 
         return ResponseHelper::success($create);
     }
+
     public function show($genreId)
     {
         $genre = $this->genreService->getGenreById($genreId);
 
         return ResponseHelper::success($genre);
     }
+
     public function update(UpdateGenreRequest $request, $genreId)
     {
         $update = $this->genreService->updateGenre($genreId, $request->validated());
 
         return ResponseHelper::success($update);
     }
-    public function destroy(DeleteGenreRequest $request, $genreId) {
+
+    public function destroy(DeleteGenreRequest $request, $genreId)
+    {
         $delete = $this->genreService->deleteGenre($genreId);
 
         return ResponseHelper::success($delete);
