@@ -34,3 +34,11 @@ Route::prefix("movie-genres")->name("movie-genres.")->controller(MovieGenreContr
     Route::post("/", "store")->name("store");
     Route::delete("{movieGenreId}", "destroy")->name("destroy");
 });
+
+Route::prefix("series")->name("series.")->controller(SerieController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+    Route::post("/", "store")->name("store");
+    Route::get("{serieId}", "show")->name("show");
+    Route::post("{serieId}/update", "update")->name("update");
+    Route::delete("{serieId}", "destroy")->name("destroy");
+});
