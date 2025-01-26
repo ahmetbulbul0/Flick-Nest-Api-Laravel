@@ -2,17 +2,18 @@
 
 namespace App\Providers;
 
-use App\Services\GenreService;
-use App\Repositories\GenreRepository;
 use Illuminate\Support\ServiceProvider;
-use App\Interfaces\Services\GenreServiceInterface;
-use App\Interfaces\Repositories\GenreRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind(GenreRepositoryInterface::class, GenreRepository::class);
-        $this->app->bind(GenreServiceInterface::class, GenreService::class);
+        // Repositories
+        $this->app->bind(\App\Interfaces\Repositories\GenreRepositoryInterface::class, \App\Repositories\GenreRepository::class);
+        $this->app->bind(\App\Interfaces\Repositories\MovieRepositoryInterface::class, \App\Repositories\MovieRepository::class);
+
+        // Services
+        $this->app->bind(\App\Interfaces\Services\GenreServiceInterface::class, \App\Services\GenreService::class);
+        $this->app->bind(\App\Interfaces\Services\MovieServiceInterface::class, \App\Services\MovieService::class);
     }
 }

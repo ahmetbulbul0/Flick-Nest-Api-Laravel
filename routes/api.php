@@ -21,3 +21,11 @@ Route::prefix("genres")->name("genres.")->controller(GenreController::class)->gr
     Route::post("{genreId}/update", "update")->name("update");
     Route::delete("{genreId}", "destroy")->name("destroy");
 });
+
+Route::prefix("movies")->name("movies.")->controller(MovieController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+    Route::post("/", "store")->name("store");
+    Route::get("{movieId}", "show")->name("show");
+    Route::post("{movieId}/update", "update")->name("update");
+    Route::delete("{movieId}", "destroy")->name("destroy");
+});
