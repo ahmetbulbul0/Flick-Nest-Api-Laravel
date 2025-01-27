@@ -42,3 +42,8 @@ Route::prefix("series")->name("series.")->controller(SerieController::class)->gr
     Route::post("{serieId}/update", "update")->name("update");
     Route::delete("{serieId}", "destroy")->name("destroy");
 });
+
+Route::prefix("serie-genres")->name("serie-genres.")->controller(SerieGenreController::class)->group(function () {
+    Route::post("/", "store")->name("store");
+    Route::delete("{serieGenreId}", "destroy")->name("destroy");
+});
