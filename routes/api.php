@@ -47,3 +47,11 @@ Route::prefix("serie-genres")->name("serie-genres.")->controller(SerieGenreContr
     Route::post("/", "store")->name("store");
     Route::delete("{serieGenreId}", "destroy")->name("destroy");
 });
+
+Route::prefix("serie-seasons")->name("serie-seasons.")->controller(SerieSeasonController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+    Route::post("/", "store")->name("store");
+    Route::get("{serieSeasonId}", "show")->name("show");
+    Route::post("{serieSeasonId}/update", "update")->name("update");
+    Route::delete("{serieSeasonId}", "destroy")->name("destroy");
+});

@@ -7,35 +7,35 @@ use App\Interfaces\Repositories\SerieRepositoryInterface;
 
 class SerieService implements SerieServiceInterface
 {
-    protected $movieRepository;
+    protected $serieRepository;
 
-    public function __construct(SerieRepositoryInterface $movieRepository)
+    public function __construct(SerieRepositoryInterface $serieRepository)
     {
-        $this->movieRepository = $movieRepository;
+        $this->serieRepository = $serieRepository;
     }
 
     public function getAllSeries()
     {
-        return $this->movieRepository->getAll();
+        return $this->serieRepository->getAll();
     }
 
     public function getSerieById($id)
     {
-        return $this->movieRepository->findById($id);
+        return $this->serieRepository->findById($id);
     }
 
     public function createSerie(array $data)
     {
-        return $this->movieRepository->create($data);
+        return $this->serieRepository->create($data);
     }
 
     public function updateSerie($id, array $data)
     {
-        return $this->movieRepository->update($id, $data);
+        return $this->serieRepository->update($id, $data);
     }
 
     public function deleteSerie($id)
     {
-        return $this->movieRepository->delete($id);
+        return $this->serieRepository->delete($id);
     }
 }
