@@ -22,7 +22,7 @@ class UpdateSerieRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "title" => ["nullable", "string", "max:255"],
+            "title" => ["nullable", "string", "max:255", "unique:series,title" . $this->route('serieId')],
             "slug" => ["nullable", "string", "unique:series,slug," . $this->route('serieId')],
             "description" => ["nullable", "string"],
         ];
