@@ -71,3 +71,8 @@ Route::prefix("person-roles")->name("person-roles.")->controller(PersonRoleContr
     Route::post("{personRoleId}/update", "update")->name("update");
     Route::delete("{personRoleId}", "destroy")->name("destroy");
 });
+
+Route::prefix("person-has-roles")->name("person-has-roles.")->controller(PersonHasRoleController::class)->group(function () {
+    Route::post("/", "store")->name("store");
+    Route::delete("{serieGenreId}", "destroy")->name("destroy");
+});
