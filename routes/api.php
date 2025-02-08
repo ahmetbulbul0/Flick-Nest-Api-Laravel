@@ -84,3 +84,11 @@ Route::prefix("movie-persons")->name("movie-persons.")->controller(MoviePersonCo
     Route::post("{moviePersonId}/update", "update")->name("update");
     Route::delete("{moviePersonId}", "destroy")->name("destroy");
 });
+
+Route::prefix("serie-persons")->name("serie-persons.")->controller(SeriePersonController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+    Route::post("/", "store")->name("store");
+    Route::get("{seriePersonId}", "show")->name("show");
+    Route::post("{seriePersonId}/update", "update")->name("update");
+    Route::delete("{seriePersonId}", "destroy")->name("destroy");
+});
