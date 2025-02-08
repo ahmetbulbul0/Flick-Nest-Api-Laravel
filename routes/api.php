@@ -55,3 +55,11 @@ Route::prefix("serie-seasons")->name("serie-seasons.")->controller(SerieSeasonCo
     Route::post("{serieSeasonId}/update", "update")->name("update");
     Route::delete("{serieSeasonId}", "destroy")->name("destroy");
 });
+
+Route::prefix("persons")->name("persons.")->controller(PersonController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+    Route::post("/", "store")->name("store");
+    Route::get("{personId}", "show")->name("show");
+    Route::post("{personId}/update", "update")->name("update");
+    Route::delete("{personId}", "destroy")->name("destroy");
+});

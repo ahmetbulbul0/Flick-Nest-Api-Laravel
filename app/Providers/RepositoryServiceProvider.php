@@ -15,6 +15,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Interfaces\Repositories\SerieRepositoryInterface::class, \App\Repositories\SerieRepository::class);
         $this->app->bind(\App\Interfaces\Repositories\SerieGenreRepositoryInterface::class, \App\Repositories\SerieGenreRepository::class);
         $this->app->bind(\App\Interfaces\Repositories\SerieSeasonRepositoryInterface::class, \App\Repositories\SerieSeasonRepository::class);
+        $this->app->bind(\App\Interfaces\Repositories\PersonRepositoryInterface::class, \App\Repositories\PersonRepository::class);
 
         // Services
         $this->app->bind(\App\Interfaces\Services\GenreServiceInterface::class, \App\Services\GenreService::class);
@@ -23,5 +24,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Interfaces\Services\SerieServiceInterface::class, \App\Services\SerieService::class);
         $this->app->bind(\App\Interfaces\Services\SerieGenreServiceInterface::class, \App\Services\SerieGenreService::class);
         $this->app->bind(\App\Interfaces\Services\SerieSeasonServiceInterface::class, \App\Services\SerieSeasonService::class);
+        $this->app->bind(\App\Interfaces\Services\PersonServiceInterface::class, \App\Services\PersonService::class);
     }
 }
