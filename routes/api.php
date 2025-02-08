@@ -74,5 +74,13 @@ Route::prefix("person-roles")->name("person-roles.")->controller(PersonRoleContr
 
 Route::prefix("person-has-roles")->name("person-has-roles.")->controller(PersonHasRoleController::class)->group(function () {
     Route::post("/", "store")->name("store");
-    Route::delete("{serieGenreId}", "destroy")->name("destroy");
+    Route::delete("{personHasRoleId}", "destroy")->name("destroy");
+});
+
+Route::prefix("movie-persons")->name("movie-persons.")->controller(MoviePersonController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+    Route::post("/", "store")->name("store");
+    Route::get("{moviePersonId}", "show")->name("show");
+    Route::post("{moviePersonId}/update", "update")->name("update");
+    Route::delete("{moviePersonId}", "destroy")->name("destroy");
 });

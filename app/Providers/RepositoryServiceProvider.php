@@ -18,6 +18,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Interfaces\Repositories\PersonRepositoryInterface::class, \App\Repositories\PersonRepository::class);
         $this->app->bind(\App\Interfaces\Repositories\PersonRoleRepositoryInterface::class, \App\Repositories\PersonRoleRepository::class);
         $this->app->bind(\App\Interfaces\Repositories\PersonHasRoleRepositoryInterface::class, \App\Repositories\PersonHasRoleRepository::class);
+        $this->app->bind(\App\Interfaces\Repositories\MoviePersonRepositoryInterface::class, \App\Repositories\MoviePersonRepository::class);
 
         // Services
         $this->app->bind(\App\Interfaces\Services\GenreServiceInterface::class, \App\Services\GenreService::class);
@@ -29,5 +30,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Interfaces\Services\PersonServiceInterface::class, \App\Services\PersonService::class);
         $this->app->bind(\App\Interfaces\Services\PersonRoleServiceInterface::class, \App\Services\PersonRoleService::class);
         $this->app->bind(\App\Interfaces\Services\PersonHasRoleServiceInterface::class, \App\Services\PersonHasRoleService::class);
+        $this->app->bind(\App\Interfaces\Services\MoviePersonServiceInterface::class, \App\Services\MoviePersonService::class);
     }
 }
