@@ -63,3 +63,11 @@ Route::prefix("persons")->name("persons.")->controller(PersonController::class)-
     Route::post("{personId}/update", "update")->name("update");
     Route::delete("{personId}", "destroy")->name("destroy");
 });
+
+Route::prefix("person-roles")->name("person-roles.")->controller(PersonRoleController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+    Route::post("/", "store")->name("store");
+    Route::get("{personRoleId}", "show")->name("show");
+    Route::post("{personRoleId}/update", "update")->name("update");
+    Route::delete("{personRoleId}", "destroy")->name("destroy");
+});
