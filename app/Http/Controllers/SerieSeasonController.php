@@ -20,11 +20,11 @@ class SerieSeasonController extends Controller
 
     public function index()
     {
-        $series = $this->serieSeasonService->getAllSerieSeasons();
+        $serieSeasons = $this->serieSeasonService->getAllSerieSeasons();
 
-        $series = SerieSeasonResource::collection($series);
+        $serieSeasons = SerieSeasonResource::collection($serieSeasons);
 
-        return ResponseHelper::success($series);
+        return ResponseHelper::success($serieSeasons);
     }
 
     public function store(StoreSerieSeasonRequest $request)
