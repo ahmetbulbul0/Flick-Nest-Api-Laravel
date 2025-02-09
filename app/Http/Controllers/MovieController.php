@@ -30,11 +30,11 @@ class MovieController extends Controller
 
     public function store(StoreMovieRequest $request)
     {
-        $create = $this->movieService->createMovie($request->validated());
+        $createdMovie = $this->movieService->createMovie($request->validated());
 
-        $create = new MovieResource($create);
+        $createdMovie = new MovieResource($createdMovie);
 
-        return ResponseHelper::success($create);
+        return ResponseHelper::success($createdMovie);
     }
 
     public function show($movieId)

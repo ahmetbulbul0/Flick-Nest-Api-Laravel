@@ -28,6 +28,9 @@ class Movie extends Model
         parent::boot();
 
         static::creating(function ($movie) {
+            $movie->title = Str::lower($movie->title);
+            $movie->description = Str::lower($movie->description);
+
             if (!$movie->slug) {
                 $movie->slug = Str::slug($movie->title);
             }

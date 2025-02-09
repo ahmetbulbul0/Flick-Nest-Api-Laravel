@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Genre;
-use Illuminate\Http\Request;
 use app\Helpers\ResponseHelper;
 use App\Http\Requests\Genre\StoreGenreRequest;
 use App\Http\Requests\Genre\DeleteGenreRequest;

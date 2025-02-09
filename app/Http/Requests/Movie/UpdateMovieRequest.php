@@ -22,12 +22,12 @@ class UpdateMovieRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "title" => ["nullable", "string", "max:255"],
+            "title" => ["required", "string"],
             "slug" => ["nullable", "string", "unique:movies,slug," . $this->route('movieId')],
             "description" => ["nullable", "string"],
-            "poster" => ["nullable", "url"],
+            "poster" => ["nullable", "image", "mimes:png,jpg,jpeg", "max:10240"],
             "trailer_url" => ["nullable", "url"],
-            "duration" => ["nullable", "integer", "min:1"],
+            "duration" => ["nullable", "string", "min:1"],
             "release_date" => ["nullable", "date"],
         ];
     }

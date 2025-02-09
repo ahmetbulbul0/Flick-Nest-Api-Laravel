@@ -25,9 +25,9 @@ class StoreMovieRequest extends FormRequest
             "title" => ["required", "string"],
             "slug" => ["nullable", "string", "unique:movies,slug"],
             "description" => ["nullable", "string"],
-            "poster" => ["nullable", "url"],
+            "poster" => ["nullable", "image", "mimes:png,jpg,jpeg", "max:10240"],
             "trailer_url" => ["nullable", "url"],
-            "duration" => ["nullable", "integer", "min:1"],
+            "duration" => ["nullable", "string", "min:1"],
             "release_date" => ["nullable", "date"],
         ];
     }
