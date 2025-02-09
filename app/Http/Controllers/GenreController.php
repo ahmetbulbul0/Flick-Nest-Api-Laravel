@@ -8,6 +8,7 @@ use app\Helpers\ResponseHelper;
 use App\Http\Requests\Genre\StoreGenreRequest;
 use App\Http\Requests\Genre\DeleteGenreRequest;
 use App\Http\Requests\Genre\UpdateGenreRequest;
+use App\Http\Resources\GenreResource;
 use App\Interfaces\Services\GenreServiceInterface;
 
 class GenreController extends Controller
@@ -23,28 +24,36 @@ class GenreController extends Controller
     {
         $genres = $this->genreService->getAllGenres();
 
+        $genres = GenreResource::collection($genres);
+
         return ResponseHelper::success($genres);
     }
 
     public function store(StoreGenreRequest $request)
     {
-        $create = $this->genreService->createGenre($request->validated());
+        $createdGenre = $this->genreService->createGenre($request->validated());
 
-        return ResponseHelper::success($create);
+        $createdGenre = new GenreResource($createdGenre);
+
+        return ResponseHelper::success($createdGenre);
     }
 
     public function show($genreId)
     {
         $genre = $this->genreService->getGenreById($genreId);
 
+        $genre = new GenreResource($genre);
+
         return ResponseHelper::success($genre);
     }
 
     public function update(UpdateGenreRequest $request, $genreId)
     {
-        $update = $this->genreService->updateGenre($genreId, $request->validated());
+        $updatedGenre = $this->genreService->updateGenre($genreId, $request->validated());
 
-        return ResponseHelper::success($update);
+        $updatedGenre = new GenreResource($updatedGenre);
+
+        return ResponseHelper::success($updatedGenre);
     }
 
     public function destroy(DeleteGenreRequest $request, $genreId)

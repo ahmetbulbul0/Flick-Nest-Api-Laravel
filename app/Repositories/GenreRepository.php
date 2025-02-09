@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Genre;
+use Illuminate\Support\Str;
 use App\Interfaces\Repositories\GenreRepositoryInterface;
 
 class GenreRepository implements GenreRepositoryInterface
@@ -25,6 +26,11 @@ class GenreRepository implements GenreRepositoryInterface
     public function update($id, array $data)
     {
         $genre = Genre::findOrFail($id);
+
+        if ($data["name"] != $genre->name && !isset($data["slug"])) {
+            $data["slug"] = Str::slug($data["name"]);
+        }
+
         $genre->update($data);
 
         return $genre;

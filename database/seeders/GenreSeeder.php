@@ -41,12 +41,33 @@ class GenreSeeder extends Seeder
             'Gerilim',
             'Savaş',
             'Western',
+            'Polisiye',
+            'Distopya',
+            'Gotik',
+            'Siberpunk',
+            'Post-apokaliptik',
+            'Kara Komedi',
+            'Macera-Komedi',
+            'Doğaüstü',
+            'Romantik Komedi',
+            'Zombi',
+            'Casusluk',
+            'Tarihi Kurgu',
+            'Psikolojik Gerilim',
+            'Tıbbi',
+            'Dans',
+            'Fantastik Macera',
+            'Denizcilik',
+            'Antoloji',
+            'Çocuk',
+            'Belgesel-Drama',
         ];
 
         foreach ($genres as $genre) {
             Genre::create([
                 "name" => Str::lower($genre),
-                "slug" => Str::slug($genre),
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
         }
     }

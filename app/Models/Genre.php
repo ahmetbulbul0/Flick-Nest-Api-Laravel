@@ -22,6 +22,8 @@ class Genre extends Model
         parent::boot();
 
         static::creating(function ($genre) {
+            $genre->name = Str::lower($genre->name);
+
             if (!$genre->slug) {
                 $genre->slug = Str::slug($genre->name);
             }
