@@ -35,6 +35,14 @@ Route::prefix("movie-genres")->name("movie-genres.")->controller(MovieGenreContr
     Route::delete("{movieGenreId}", "destroy")->name("destroy");
 });
 
+Route::prefix("movie-persons")->name("movie-persons.")->controller(MoviePersonController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+    Route::post("/", "store")->name("store");
+    Route::get("{moviePersonId}", "show")->name("show");
+    Route::post("{moviePersonId}/update", "update")->name("update");
+    Route::delete("{moviePersonId}", "destroy")->name("destroy");
+});
+
 Route::prefix("series")->name("series.")->controller(SerieController::class)->group(function () {
     Route::get("/", "index")->name("index");
     Route::post("/", "store")->name("store");
@@ -56,6 +64,14 @@ Route::prefix("serie-seasons")->name("serie-seasons.")->controller(SerieSeasonCo
     Route::delete("{serieSeasonId}", "destroy")->name("destroy");
 });
 
+Route::prefix("serie-persons")->name("serie-persons.")->controller(SeriePersonController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+    Route::post("/", "store")->name("store");
+    Route::get("{seriePersonId}", "show")->name("show");
+    Route::post("{seriePersonId}/update", "update")->name("update");
+    Route::delete("{seriePersonId}", "destroy")->name("destroy");
+});
+
 Route::prefix("persons")->name("persons.")->controller(PersonController::class)->group(function () {
     Route::get("/", "index")->name("index");
     Route::post("/", "store")->name("store");
@@ -75,20 +91,4 @@ Route::prefix("person-roles")->name("person-roles.")->controller(PersonRoleContr
 Route::prefix("person-has-roles")->name("person-has-roles.")->controller(PersonHasRoleController::class)->group(function () {
     Route::post("/", "store")->name("store");
     Route::delete("{personHasRoleId}", "destroy")->name("destroy");
-});
-
-Route::prefix("movie-persons")->name("movie-persons.")->controller(MoviePersonController::class)->group(function () {
-    Route::get("/", "index")->name("index");
-    Route::post("/", "store")->name("store");
-    Route::get("{moviePersonId}", "show")->name("show");
-    Route::post("{moviePersonId}/update", "update")->name("update");
-    Route::delete("{moviePersonId}", "destroy")->name("destroy");
-});
-
-Route::prefix("serie-persons")->name("serie-persons.")->controller(SeriePersonController::class)->group(function () {
-    Route::get("/", "index")->name("index");
-    Route::post("/", "store")->name("store");
-    Route::get("{seriePersonId}", "show")->name("show");
-    Route::post("{seriePersonId}/update", "update")->name("update");
-    Route::delete("{seriePersonId}", "destroy")->name("destroy");
 });
