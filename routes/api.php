@@ -92,3 +92,7 @@ Route::prefix("person-has-roles")->name("person-has-roles.")->controller(PersonH
     Route::post("/", "store")->name("store");
     Route::delete("{personHasRoleId}", "destroy")->name("destroy");
 });
+
+Route::prefix("languages")->name("languages.")->controller(LanguageController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+});
