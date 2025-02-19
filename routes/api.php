@@ -96,3 +96,7 @@ Route::prefix("person-has-roles")->name("person-has-roles.")->controller(PersonH
 Route::prefix("languages")->name("languages.")->controller(LanguageController::class)->group(function () {
     Route::get("/", "index")->name("index");
 });
+
+Route::prefix("platforms")->name("platforms.")->controller(PlatformController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+});
