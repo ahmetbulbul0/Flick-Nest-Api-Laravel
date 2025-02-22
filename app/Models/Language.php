@@ -24,7 +24,7 @@ class Language extends Model
         "updated_at" => "datetime",
     ];
 
-    public function isLtr(): bool
+    public function isLtr()
     {
         return $this->direction === "ltr";
     }
@@ -34,7 +34,7 @@ class Language extends Model
         return self::where("direction", "ltr")->get();
     }
 
-    public function isRtl(): bool
+    public function isRtl()
     {
         return $this->direction === "rtl";
     }
