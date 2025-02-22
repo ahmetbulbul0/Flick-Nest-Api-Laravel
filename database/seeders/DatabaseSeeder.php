@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PersonHasRoleSeeder::class);
         $this->call(LanguageSeeder::class);
         $this->call(PlatformSeeder::class);
+        $this->call(RoleSeeder::class);
     }
 }

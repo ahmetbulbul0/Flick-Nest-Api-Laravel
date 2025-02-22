@@ -100,3 +100,11 @@ Route::prefix("languages")->name("languages.")->controller(LanguageController::c
 Route::prefix("platforms")->name("platforms.")->controller(PlatformController::class)->group(function () {
     Route::get("/", "index")->name("index");
 });
+
+Route::prefix("roles")->name("roles.")->controller(RoleController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+    Route::post("/", "store")->name("store");
+    Route::get("{roleId}", "show")->name("show");
+    Route::post("{roleId}/update", "update")->name("update");
+    Route::delete("{roleId}", "destroy")->name("destroy");
+});
