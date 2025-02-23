@@ -13,15 +13,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(GenreSeeder::class);
-        $this->call(MovieSeeder::class);
-        $this->call(SerieSeeder::class);
-        $this->call(SerieSeasonSeeder::class);
-        $this->call(PersonSeeder::class);
-        $this->call(PersonRoleSeeder::class);
-        $this->call(PersonHasRoleSeeder::class);
-        $this->call(LanguageSeeder::class);
-        $this->call(PlatformSeeder::class);
-        $this->call(RoleSeeder::class);
+        $this->call([
+            GenreSeeder::class,
+            MovieSeeder::class,
+            SerieSeeder::class,
+            SerieSeasonSeeder::class,
+            PersonSeeder::class,
+            PersonRoleSeeder::class,
+            PersonHasRoleSeeder::class,
+            LanguageSeeder::class,
+            PlatformSeeder::class,
+            RoleSeeder::class,
+            PermissionSeeder::class,
+            CountrySeeder::class,
+            SuperAdminSeeder::class,
+        ]);
     }
 }

@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Role;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class RoleSeeder extends Seeder
 {
@@ -13,14 +14,17 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = [
-            ["name" => "Super Admin"],
-            ["name" => "Admin"],
-            ["name" => "User"],
+        $roles = [
+            [
+                'name' => 'super admin',
+                'slug' => 'super-admin',
+                'description' => 'Super Administrator with full system access',
+                'is_active' => true
+            ]
         ];
 
-        foreach ($data as $item) {
-            Role::create($item);
+        foreach ($roles as $role) {
+            Role::create($role);
         }
     }
 }
