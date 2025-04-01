@@ -3,10 +3,18 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Interfaces\Repositories\CountryRepositoryInterface;
+use App\Interfaces\Services\CountryServiceInterface;
+use App\Repositories\CountryRepository;
+use App\Services\CountryService;
+use App\Interfaces\Repositories\UserRepositoryInterface;
+use App\Interfaces\Services\UserServiceInterface;
+use App\Repositories\UserRepository;
+use App\Services\UserService;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
         // Repositories
         $this->app->bind(\App\Interfaces\Repositories\GenreRepositoryInterface::class, \App\Repositories\GenreRepository::class);
@@ -24,6 +32,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Interfaces\Repositories\PlatformRepositoryInterface::class, \App\Repositories\PlatformRepository::class);
         $this->app->bind(\App\Interfaces\Repositories\RoleRepositoryInterface::class, \App\Repositories\RoleRepository::class);
         $this->app->bind(\App\Interfaces\Repositories\CountryRepositoryInterface::class, \App\Repositories\CountryRepository::class);
+        $this->app->bind(\App\Interfaces\Repositories\UserRepositoryInterface::class, \App\Repositories\UserRepository::class);
 
         // Services
         $this->app->bind(\App\Interfaces\Services\GenreServiceInterface::class, \App\Services\GenreService::class);
@@ -41,5 +50,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Interfaces\Services\PlatformServiceInterface::class, \App\Services\PlatformService::class);
         $this->app->bind(\App\Interfaces\Services\RoleServiceInterface::class, \App\Services\RoleService::class);
         $this->app->bind(\App\Interfaces\Services\CountryServiceInterface::class, \App\Services\CountryService::class);
+        $this->app->bind(\App\Interfaces\Services\UserServiceInterface::class, \App\Services\UserService::class);
+    }
+
+    public function boot(): void
+    {
+        //
     }
 }
