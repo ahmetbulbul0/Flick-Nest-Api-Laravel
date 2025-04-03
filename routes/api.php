@@ -100,3 +100,38 @@ Route::prefix("languages")->name("languages.")->controller(LanguageController::c
 Route::prefix("platforms")->name("platforms.")->controller(PlatformController::class)->group(function () {
     Route::get("/", "index")->name("index");
 });
+
+Route::prefix("roles")->name("roles.")->controller(RoleController::class)->group(function () {
+    Route::get("/", "index")->name("index");
+    Route::post("/", "store")->name("store");
+    Route::get("{roleId}", "show")->name("show");
+    Route::post("{roleId}/update", "update")->name("update");
+    Route::delete("{roleId}", "destroy")->name("destroy");
+});
+
+Route::prefix('users')->name("users.")->controller(UserController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::post('/', 'store');
+    Route::get('active', 'getActiveUsers');
+    Route::get('banned', 'getBannedUsers');
+    Route::get('search', 'searchUsers');
+    Route::get('role/{role}', 'getUsersByRole');
+    Route::get('permission/{permission}', 'getUsersWithPermission');
+    Route::get('{user}', 'show');
+    Route::put('{user}', 'update');
+    Route::delete('/{user}', 'destroy');
+    Route::post('{user}/restore', 'restore');
+    Route::delete('/{user}/force', 'forceDelete');
+    Route::post('{user}/ban', 'ban');
+    Route::post('{user}/unban', 'unban');
+    Route::post('{user}/toggle-status', 'toggleStatus');
+    Route::post('{user}/roles/{role}', 'assignRole');
+    Route::delete('/{user}/roles/{role}', 'removeRole');
+    Route::put('{user}/roles', 'syncRoles');
+    Route::put('{user}/profile', 'updateProfile');
+    Route::put('{user}/security', 'updateSecurity');
+    Route::put('{user}/preferences', 'updatePreferences');
+    Route::post('{user}/social-links', 'addSocialLink');
+    Route::put('{user}/social-links/{link}', 'updateSocialLink');
+    Route::delete('{user}/social-links/{link}', 'deleteSocialLink');
+});
